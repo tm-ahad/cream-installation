@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if [[ "$OSTYPE" == "linux-gnu" ]]
 then
     curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.1.0-linux-alpha/cream -o ./cream
