@@ -1,14 +1,14 @@
-if [ "$OSTYPE"="linux-gnu" ]
+if [[ "$OSTYPE" == "linux-gnu" ]]
 then
     curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.1.0-linux-alpha/cream -o ./cream
     sudo chmod 777 ./cream
     sudo mv ./cream /usr/bin/cream
-elif [ "$OSTYPE"="darwin"* ]
+elif [[ "$OSTYPE" == "darwin"* ]]
 then
     curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.1.0-darwin/cream -o ./cream
     sudo chmod 777 ./cream
     sudo mv ./cream /usr/local/bin/cream
 fi
 
-echo "\e[5;32mCream has successfully installed on your machine.\e[0m"
+echo "Cream has successfully installed on your machine."
 
