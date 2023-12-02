@@ -1,6 +1,6 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]
 then
-    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.1.0-linux-alpha/cream -o ./cream
+    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.3.0/cream -o ./cream
     sudo chmod 777 ./cream
     sudo mv ./cream /usr/bin/cream
 elif [[ "$OSTYPE" == "darwin"* ]]
