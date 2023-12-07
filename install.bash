@@ -1,6 +1,6 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]
 then
-    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.3.0/cream -o ./cream
+    curl -L0 https://github.com/tm-ahad/cream/releases/download/0.4.0/cream -o ./cream
     sudo chmod 777 ./cream
     sudo mv ./cream /usr/bin/cream
 elif [[ "$OSTYPE" == "darwin"* ]]
@@ -32,4 +32,4 @@ then
     echo "alias cream=$CH/cream.exe" > $BASHRC
 fi
 
-echo "Cream has successfully installed on your machine."
+echo "Cream has been successfully installed on your machine."
