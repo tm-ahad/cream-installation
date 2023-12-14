@@ -1,16 +1,16 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]
 then
-    curl -L0 https://github.com/tm-ahad/cream/releases/download/0.4.0/cream -o ./cream
+    curl -L0 https://github.com/tm-ahad/cream/releases/download/v0.4.1/cream -o ./cream
     sudo chmod 777 ./cream
     sudo mv ./cream /usr/bin/cream
 elif [[ "$OSTYPE" == "darwin"* ]]
 then
-    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.1.0-darwin/cream -o ./cream
+    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.4.1-darwin/cream -o ./cream
     sudo chmod 777 ./cream
     sudo mv ./cream /usr/local/bin/cream
 elif [[ "$OSTYPE" == "msys" ]]
 then
-    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.1.1-msys-alpha/cream.exe -o ./cream.exe
+    curl -L0 https://www.github.com/tm-ahad/cream/releases/download/v0.4.1-msys/cream.exe -o ./cream.exe
 
     CH=$HOME/.cream
     BASHRC=$HOME/.bashrc
