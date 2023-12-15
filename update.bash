@@ -29,7 +29,6 @@ then
     then
         touch $BASHRC
     fi
-    echo "alias cream=$CH/cream.exe" > $BASHRC
 fi
 
-echo "Cream has been successfully installed on your machine."
+echo "Cream has been successfully updated on your machine."
