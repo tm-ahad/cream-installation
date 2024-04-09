@@ -1,19 +1,19 @@
-$url = "https://github.com/tm-ahad/cream/releases/download/v0.4.2-alpha/windows.exe"
-$outputFile = "$env:USERPROFILE\Downloads\cream.exe"
+# Define the API URL and fetch the latest release information
+$apiURL = "https://api.github.com/repos/tm-ahad/cream/releases/latest"
+$output = Invoke-RestMethod -Uri $apiURL
 
-try {
-    Invoke-WebRequest -Uri $url -OutFile $outputFile -ErrorAction Stop
-    $destinationDir = "$env:USERPROFILE\.cream"
+# Extract the download URL for the cream executable
+$downloadURL = $output.assets | Where-Object { $_.name -match "cream-windows.exe" } | Select-Object -ExpandProperty browser_download_url
 
-    if (!(Test-Path -Path $destinationDir -PathType Container)) {
-        New-Item -Path $destinationDir -ItemType Directory | Out-Null
-    }
-
-    Move-Item -Path $outputFile -Destination "$destinationDir\cream.exe" -Force
-    $env:PATH += ";$destinationDir"
-
-    Write-Host "cream has been successfully installed on your machine."
-} 
-catch {
-    Write-Error "An error occurred while downloading or moving the file: $_"
+# Create the directory if it doesn't exist
+$installDir = "C:\.cream\bin"
+if (-not (Test-Path -Path $installDir)) {
+    New-Item -ItemType Directory -Path $installDir -Force
 }
+
+# Download the cream executable
+$outputFilePath = Join-Path -Path $installDir -ChildPath "cream.exe"
+Invoke-WebRequest -Uri $downloadURL -OutFile $outputFilePath
+
+Write-Host "cream has been successfully downloaded on your machine!"
+Write-Host "Now append this path ($installDir) to the PATH env var"
