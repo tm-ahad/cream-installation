@@ -36,3 +36,5 @@ then
     sudo chmod 755 ./cream
     sudo mv ./cream /usr/local/bin/cream
 fi
+
+echo "Cream is successfully installed on your machine."
