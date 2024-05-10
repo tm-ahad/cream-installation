@@ -10,7 +10,7 @@ LATEST_RELEASE=$(curl -sL https://api.github.com/repos/tm-ahad/cream/releases/la
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     DOWNLOAD_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("cream-linux")) | .browser_download_url')
-elif [[ "$OSTYPE" == "darwin"* ]]
+elif [[ "$OSTYPE" == "darwin"* ]]; then
     DOWNLOAD_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("cream-darwin")) | .browser_download_url')
 else
     echo "Cannot run this script on systems other than darwin or linux-gnu."
