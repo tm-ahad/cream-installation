@@ -16,25 +16,25 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     DOWNLOAD_URL=$(echo "$LATEST_RELEASE" | jq -r '.assets[] | select(.name | contains("cream-darwin")) | .browser_download_url')
 else
     echo "Cannot run this script on systems other than darwin or linux-gnu."
-    exit 1 
+    exit 1
 fi
+
+echo $DOWNLOAD_URL
 
 if [[ -z "$DOWNLOAD_URL" ]]; then
   echo "Error: Could not find download URL for Cream in the latest release."
   exit 1
 fi
 
+curl -L0 $DOWNLOAD_URL -o ./cream
+sudo chmod 755 ./cream
 
 if [[ "$OSTYPE" == "linux-gnu" ]]
 then
-    curl -L0 https://github.com/tm-ahad/cream/releases/download/v0.4.2-alpha/linux -o ./cream
-    sudo chmod 755 ./cream
-    sudo mv ./cream /usr/bin/cream
+    sudo mv ./cream /usr/bin
 elif [[ "$OSTYPE" == "darwin"* ]]
 then
-    curl -L0 https://github.com/tm-ahad/cream/releases/download/v0.4.2-alpha/darwin -o ./cream
-    sudo chmod 755 ./cream
-    sudo mv ./cream /usr/local/bin/cream
+    sudo mv ./cream /usr/local/bin
 fi
 
 echo "Cream is successfully installed on your machine."
